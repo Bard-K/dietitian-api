@@ -8,6 +8,7 @@ public class DietitianApiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DietitianApiApplication.class, args);
+        System.out.println("커밋 테스트");
     }
 
 }

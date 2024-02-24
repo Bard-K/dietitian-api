@@ -12,6 +12,7 @@ public class DietitianApiApplication {
         SpringApplication.run(DietitianApiApplication.class, args);
         System.out.println("feature 브랜치 테스트");
         System.out.println("feature 브랜치 테스트 bard test");
+        System.out.println("feature 브랜치 테스트 thunder test");
     }
 
 }

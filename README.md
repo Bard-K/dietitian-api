@@ -32,7 +32,7 @@ ERD
 화면 설계서
     - [Figma](https://www.figma.com/file/267ULzLWtJrhqFOl4jXGDI/%ED%99%94%EB%A9%B4%EC%84%A4%EA%B3%84%EC%84%9C?type=design&node-id=0-1&mode=design&t=grH96APqde2QdHiZ-0)
 
-깃 브랜치 전략 : Git-flow
+git 브랜치 전략 : Git-flow
     작업 순서
     1. local/develop checkout → fetch & merge 또는 pull 최신 소스 받기
     2. 피쳐 브랜치 따기
@@ -49,7 +49,7 @@ ERD
         → 릴리즈를 merge → push (마스터 브랜치를 푸시)
     -- 배포 할 때 여기까지 진행
 
-깃 커밋 컨벤션
+git 커밋 컨벤션
     feat: 커밋 메시지 제목
     <type>
     feat : 새로운 기능에 대한 커밋

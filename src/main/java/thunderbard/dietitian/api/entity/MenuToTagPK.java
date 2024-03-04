@@ -1,4 +1,4 @@
-package thunderbard.dietitian.entity;
+package thunderbard.dietitian.api.entity;
 
 import java.io.Serializable;
 

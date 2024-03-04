@@ -1,4 +1,4 @@
-package thunderbard.dietitian.entity;
+package thunderbard.dietitian.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,20 +9,20 @@ import java.sql.Timestamp;
 @Data
 @EqualsAndHashCode
 @Entity
-@jakarta.persistence.Table(name = "menu_to_tag", schema = "dietitian", catalog = "")
-@IdClass(thunderbard.dietitian.entity.MenuToTagPK.class)
-public class MenuToTag {
+public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @jakarta.persistence.Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false)
     private long id;
 
-    @Id
-    @jakarta.persistence.Column(name = "tag_id", nullable = false)
-    private long tagId;
+    @Column(name = "post_name", nullable = false, length = 50)
+    private String postName;
 
-    @Column(name = "sort_order", nullable = false)
-    private int sortOrder;
+    @Column(name = "content", nullable = false, length = 2000)
+    private String content;
+
+    @Column(name = "views", nullable = false)
+    private int views;
 
     @Column(name = "delete_yn", nullable = false, length = 1)
     private String deleteYn;

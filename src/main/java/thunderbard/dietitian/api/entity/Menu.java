@@ -1,4 +1,4 @@
-package thunderbard.dietitian.entity;
+package thunderbard.dietitian.api.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

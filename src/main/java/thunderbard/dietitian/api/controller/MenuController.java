@@ -21,5 +21,4 @@ public class MenuController {
         return menuService.findMenu();
     }
 
-
 }

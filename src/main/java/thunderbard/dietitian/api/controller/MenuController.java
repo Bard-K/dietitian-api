@@ -18,7 +18,7 @@ public class MenuController {
 
     @GetMapping("/menu")
     public List<Menu> findMenu() {
-        return menuService.findMenu();
+        return menuService.findMenus();
     }
 
 }

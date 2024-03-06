@@ -12,7 +12,7 @@ import java.util.List;
 public class MenuService {
     private final MenuRepository menuRepository;
 
-    public List<Menu> findMenu() {
+    public List<Menu> findMenus() {
         return menuRepository.findAll();
     }
 }

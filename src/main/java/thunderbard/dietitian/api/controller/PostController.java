@@ -4,21 +4,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import thunderbard.dietitian.api.entity.Menu;
-import thunderbard.dietitian.api.service.MenuService;
+import thunderbard.dietitian.api.entity.Post;
+import thunderbard.dietitian.api.service.PostService;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/api/menu")
-public class MenuController {
+@RequestMapping(value = "/api/post")
+public class PostController {
 
-    private final MenuService menuService;
+    private final PostService postService;
 
     @GetMapping("")
-    public List<Menu> findMenus() {
-        return menuService.findMenus();
+    public List<Post> findPosts() {
+        return postService.findPosts();
     }
 
 }

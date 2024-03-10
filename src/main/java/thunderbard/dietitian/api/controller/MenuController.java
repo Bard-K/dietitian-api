@@ -2,10 +2,8 @@ package thunderbard.dietitian.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import thunderbard.dietitian.api.entity.Menu;
+import thunderbard.dietitian.api.dto.*;
 import thunderbard.dietitian.api.service.MenuService;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -15,28 +13,28 @@ public class MenuController {
     private final MenuService menuService;
 
     @GetMapping
-    public List<Menu> findMenus() {
-        return menuService.findMenus();
+    public FindMenusResponse findMenus(@RequestParam String menuName) {
+        return menuService.findMenus(menuName);
     }
 
-    @GetMapping("/{id}")
-    public Menu getMenuById(@PathVariable Long id) {
+    @GetMapping("/detail")
+    public GetMenuByIdResponse getMenuById(@RequestParam Long id) {
         return menuService.getMenuById(id);
     }
 
     @PostMapping
-    public Menu createMenu(@RequestBody Menu menu) {
-        return menuService.createMenu(menu);
+    public CreateMenuResponse createMenu(@RequestBody CreateMenuRequest dto) {
+        return menuService.createMenu(dto);
     }
 
-    @PutMapping("/{id}")
-    public Menu modifyMenu(@RequestBody Menu menu) {
-        return menuService.modifyMenu(menu);
+    @PutMapping
+    public ModifyMenuResponse modifyMenu(@RequestBody ModifyMenuRequest dto) {
+        return menuService.modifyMenu(dto);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteMenu(@PathVariable Long id) {
-        menuService.deleteMenu(id);
+    @DeleteMapping
+    public DeleteMenuResponse deleteMenu(@RequestBody DeleteMenuRequest dto) {
+        return menuService.deleteMenu(dto);
     }
 
 }

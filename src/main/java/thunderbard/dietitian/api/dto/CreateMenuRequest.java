@@ -7,8 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class CreateMenuRequest {
 
-    private long id;
-
     private String menuName;
 
     private String thumbnail;

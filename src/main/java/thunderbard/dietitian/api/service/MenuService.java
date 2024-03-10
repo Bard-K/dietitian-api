@@ -1,6 +1,7 @@
 package thunderbard.dietitian.api.service;
 
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import thunderbard.dietitian.api.dto.*;
 import thunderbard.dietitian.api.entity.Menu;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MenuService {
     private final MenuRepository menuRepository;
+    private final ModelMapper modelMapper;
 
     /**
      * 메뉴 목록 검색
@@ -50,8 +52,10 @@ public class MenuService {
      * @return
      */
     public CreateMenuResponse createMenu(CreateMenuRequest dto) {
-        //Menu menu = new Menu(dto);
-        //menuRepository.save(menu);
+
+        Menu menu = modelMapper.map(dto, Menu.class);
+
+        menuRepository.save(menu);
 
         return new CreateMenuResponse();
     }

@@ -31,11 +31,11 @@ public class Menu {
     @Column(name = "recipe", nullable = false, length = -1)
     private String recipe;
 
-    @Column(name = "delete_yn", nullable = false, length = 1)
-    private String deleteYn;
+    @Column(name = "delete_yn", length = 1)
+    private String deleteYn = "N";
 
     @CreatedDate
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "created_date", updatable = false)
     private Timestamp createdDate;
 
     @LastModifiedDate

@@ -3,6 +3,7 @@ package thunderbard.dietitian.api.service;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import thunderbard.dietitian.api.dto.*;
 import thunderbard.dietitian.api.entity.Menu;
 import thunderbard.dietitian.api.repository.MenuRepository;
@@ -12,6 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MenuService {
     private final MenuRepository menuRepository;

@@ -37,14 +37,24 @@ public class MenuService {
     }
 
     /**
+     * 메뉴 상세 조회
+     *
+     * @param id
+     * @return
+     */
+    public FindMenuByIdResponse findMenuById(Long id) {
+        Optional<Menu> optionalMenu = getMenuById(id);
+        return optionalMenu.map(FindMenuByIdResponse::fromEntity).orElse(null);
+    }
+
+    /**
      * 메뉴 조회
      *
      * @param id
      * @return
      */
-    public GetMenuByIdResponse getMenuById(Long id) {
-        Optional<Menu> optionalMenu = menuRepository.findById(id);
-        return optionalMenu.map(GetMenuByIdResponse::fromEntity).orElse(null);
+    public Optional<Menu> getMenuById(Long id) {
+        return menuRepository.findById(id);
     }
 
     /**
@@ -56,9 +66,7 @@ public class MenuService {
     public CreateMenuResponse createMenu(CreateMenuRequest dto) {
 
         Menu menu = modelMapper.map(dto, Menu.class);
-
         menuRepository.save(menu);
-
         return new CreateMenuResponse();
     }
 
@@ -69,11 +77,16 @@ public class MenuService {
      * @return
      */
     public ModifyMenuResponse modifyMenu(ModifyMenuRequest dto) {
-        //Menu menu = getMenuById(id);
 
-        //menu.setMenuName(menuDetail.getMenuName());
-
-        //return menuRepository.save(menu);
+        Optional<Menu> optionalMenu = getMenuById(dto.getId());
+        if(optionalMenu.isPresent()) {
+            Menu menu = optionalMenu.get();
+            menu.setMenuName(menu.getMenuName());
+            menu.setThumbnail(menu.getThumbnail());
+            menu.setUrl(menu.getUrl());
+            menu.setRecipe(menu.getRecipe());
+            menuRepository.save(menu);
+        }
         return new ModifyMenuResponse();
     }
 
@@ -83,8 +96,13 @@ public class MenuService {
      * @param dto
      */
     public DeleteMenuResponse deleteMenu(DeleteMenuRequest dto) {
-        //Menu menu = getMenuById(id);
-        //menuRepository.delete(menu);
+
+        Optional<Menu> optionalMenu = getMenuById(dto.getId());
+        if(optionalMenu.isPresent()) {
+            Menu menu = optionalMenu.get();
+            menu.setDeleteYn("Y");
+            menuRepository.save(menu);
+        }
         return new DeleteMenuResponse();
     }
 }

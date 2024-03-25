@@ -7,7 +7,7 @@ import thunderbard.dietitian.api.entity.Menu;
 import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
-public class GetMenuByIdResponse {
+public class FindMenuByIdResponse {
 
     private long id;
 
@@ -23,7 +23,7 @@ public class GetMenuByIdResponse {
 
     private Timestamp modifiedDate;
 
-    public static GetMenuByIdResponse fromEntity(Menu menu) {
-        return new GetMenuByIdResponse(menu.getId(), menu.getMenuName(), menu.getThumbnail(), menu.getUrl(), menu.getRecipe(), menu.getCreatedDate(), menu.getModifiedDate());
+    public static FindMenuByIdResponse fromEntity(Menu menu) {
+        return new FindMenuByIdResponse(menu.getId(), menu.getMenuName(), menu.getThumbnail(), menu.getUrl(), menu.getRecipe(), menu.getCreatedDate(), menu.getModifiedDate());
     }
 }

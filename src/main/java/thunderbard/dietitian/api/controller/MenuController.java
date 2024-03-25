@@ -1,8 +1,6 @@
 package thunderbard.dietitian.api.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import thunderbard.dietitian.api.dto.*;
@@ -21,8 +19,8 @@ public class MenuController {
     }
 
     @GetMapping("/detail")
-    public GetMenuByIdResponse getMenuById(@RequestParam Long id) {
-        return menuService.getMenuById(id);
+    public FindMenuByIdResponse findMenuById(@RequestParam Long id) {
+        return menuService.findMenuById(id);
     }
 
     @PostMapping
